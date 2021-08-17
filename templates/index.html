@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Covid Chatbot</title>
+    <h1 style="text-align:center">Chatbot</h1>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  	<script type="text/javascript" src="{{ url_for('static', filename='js/index.js') }}"></script>
+</head>
+
+<br>
+<br>
+<body>
+  <div>
+    <form action="{{ url_for('main') }}" method="POST" class='form'>
+
+       Enter your question:
+       <textarea rows = "5" cols = "50" name = "Question"></textarea>
+
+       <input type = "submit" value = "submit" class="button" />
+    </form>
+
+  </div>
+  <h5 style="text-align:center">Data Courtesy: https://www.kaggle.com/xhlulu/covidqa</h5>
+
+<br>
+
+<div class="result" align="center">
+  <h3> {{ original_input }}</h3>
+  <table>
+    <tr>
+      {% for header in headings %}
+      <th>{{ header }}</th>
+      {% endfor %}
+    </tr>
+    {% for row in data %}
+    <tr>
+      {% for cell in row %}
+      <td>{{ cell }}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+  <audio controls autoplay>
+  <source src="{{ url_for('static', filename='audio.wav') }}" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h1 style="text-align:center">Power BI Reports and Dashboard</h1>
+<br>
+<br>
+<br>
+
+<p align="center"><iframe width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=8acef31b-84fa-440f-a079-5c25edfc6c15&autoAuth=true&ctid=ec1c20e0-83ed-417e-84f7-3b2d59c91882&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWluZGlhLWNlbnRyYWwtYS1wcmltYXJ5LXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+</div>
+</body>
+</html>

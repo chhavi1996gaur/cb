@@ -1,0 +1,65 @@
+form {
+    margin: auto;
+    width: 35%;
+
+}
+
+.result {
+    margin: auto;
+    width: 35%;
+
+}
+
+
+.form{
+  height: 180px;
+  padding: 10px;
+  /* border: 1px solid black; */
+  vertical-align: middle;
+  position: relative;
+  text-align: center;
+
+
+
+}
+
+h6{
+  text-align: center;
+}
+textarea{
+  padding: 10px;
+  font-family: serif;
+  font-size: 15px;
+  margin-left: 5%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10%;
+
+}
+
+.button{
+  position: absolute;
+  /* margin:20px; */
+  top:155px;
+  right:45px;
+  width:100px;
+  height: 30px;
+
+}
+
+table, th, td {
+  padding: 10px;
+  border: 1px solid black;
+  margin: 10px;
+  text-align: center;
+}
+td{
+  text-align: justify;
+  margin: 0 auto;
+}
+table{
+  border-collapse: collapse;
+  margin-left: 30px;
+  text-align: center;
+}
+tr:nth-child(even) {background-color: #f2f2f2;}
