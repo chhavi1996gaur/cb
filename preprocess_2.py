@@ -67,10 +67,10 @@ def text_to_speech(text):
         engine.save_to_file(text, 'static/audio.wav')'''
     tts = gTTS(text)
     with open('static/audio.wav', 'wb') as audio:
-        tts.save('audio.wav')
-    main_file = open("audio.wav", "rb").read()
+        tts.save('static/audio.wav')
+    '''main_file = open("audio.wav", "rb").read()
     dest_file = open('static/audio.wav', 'wb+')
     dest_file.write(main_file)
-    dest_file.close()
+    dest_file.close()'''
     #engine.runAndWait()
 
