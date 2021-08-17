@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
-import pyttsx3
+from gtts import gTTS
 
 
 def make_final_df(input_value):
@@ -48,8 +48,8 @@ def make_pred(Input):
     return output_df
 
 
-def text_to_speech(text, gender):
-    voice_dict = {'Male': 0, 'Female': 1}
+def text_to_speech(text):
+    '''voice_dict = {'Male': 0, 'Female': 1}
     gender = voice_dict[gender]
 
     engine = pyttsx3.init()
@@ -64,9 +64,13 @@ def text_to_speech(text, gender):
     voices = engine.getProperty('voices')
     engine.setProperty('voice', voices[gender].id)
     with open('audio.wav', 'wb') as audio:
-        engine.save_to_file(text, 'static/audio.wav')
-
-
-    #ngine.say(text)
-    engine.runAndWait()
+        engine.save_to_file(text, 'static/audio.wav')'''
+    tts = gTTS(text)
+    with open('static/audio.wav', 'wb') as audio:
+        tts.save('audio.wav')
+    main_file = open("audio.wav", "rb").read()
+    dest_file = open('static/audio.wav', 'wb+')
+    dest_file.write(main_file)
+    dest_file.close()
+    #engine.runAndWait()
 

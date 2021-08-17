@@ -7,7 +7,6 @@ app = Flask(__name__, template_folder='templates')
 
 from preprocess_2 import make_pred, text_to_speech
 
-#engine = pyttsx3.init()
 
 @app.route('/', methods=['GET', 'POST'])
 def main():
@@ -25,8 +24,8 @@ def main():
 
         prediction.reset_index(inplace=True)
         result = list(prediction.values)
-        text = result[0][1] + 'and the Relevance of this answer is ' + str(result[0][2] + 'Hello')
-        text_to_speech(text, 'Male')
+        text = 'Hello' + result[0][1] + 'and the Relevance of this answer is ' + str(result[0][2] + 'Hello')
+        text_to_speech(text)
 
 
     return flask.render_template('index.html', headings=headings, original_input=Input, data=result)
