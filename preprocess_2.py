@@ -4,7 +4,8 @@ import numpy as np
 import os
 from sklearn.feature_extraction.text import TfidfVectorizer
 from gtts import gTTS
-
+import speech_recognition as sr
+import time
 
 def make_final_df(input_value):
     df = pd.read_csv('final_df.csv')
@@ -67,11 +68,17 @@ def text_to_speech(text):
     with open('audio.wav', 'wb') as audio:
         engine.save_to_file(text, 'static/audio.wav')'''
     tts = gTTS(text)
-    with open('static/audio.wav', 'wb') as audio:
-        tts.save('static/audio.wav')
-    '''main_file = open("audio.wav", "rb").read()
-    dest_file = open('static/audio.wav', 'wb+')
-    dest_file.write(main_file)
-    dest_file.close()'''
+    zz=time.time()
+    with open('static/audio'+str(zz)+'.wav', 'wb') as audio:
+        tts.save('static/audio_'+str(zz)+'.wav')
+    return 'static/audio'+str(zz)+'.wav'
     #engine.runAndWait()
 
+
+def speech_to_text(file):
+    r = sr.Recognizer()
+    with sr.AudioFile(file) as source:
+        audio_data = r.record(source)
+        text = r.recognize_google(audio_data, language='en-IN', show_all=True)
+        return_text = text['alternative'][0]['transcript']
+        return return_text
